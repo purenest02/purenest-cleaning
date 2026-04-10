@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PureNest Cleaning | Surrey & Guildford's Premium Cleaning Specialists</title>
+<meta name="description" content="Hotel-trained cleaning specialists serving Surrey and Guildford. End of tenancy, deep cleans, move in/out. Hyatt Regency trained, HACCP certified, fully insured.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root{
+  --ink:#080e18;
+  --ink2:#121e30;
+  --gold:#c09a56;
+  --gold2:#dbb978;
+  --gold-pale:#f0e4c8;
+  --white:#ffffff;
+  --off:#f8f6f2;
+  --mist:#f2efe9;
+  --border:#e4dfd6;
+  --grey:#7a8694;
+  --mid:#3a4a5a;
+  --green:#16a34a;
+  --sage:#edeae4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:rgba(8,14,24,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(192,154,86,0.15);transition:all 0.3s;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:white;cursor:pointer;letter-spacing:0.3px;}
+.logo span{color:var(--gold);}
+.logo sub{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,0.35);letter-spacing:2px;display:block;margin-top:-4px;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:0.3px;cursor:pointer;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-quote{background:var(--gold)!important;color:var(--ink)!important;padding:9px 22px;font-weight:600!important;letter-spacing:0.5px;transition:background 0.3s!important;}
+.nav-quote:hover{background:var(--gold2)!important;}
+.nav-mobile-menu{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-mobile-menu span{width:24px;height:2px;background:white;transition:all 0.3s;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:70px;position:relative;overflow:hidden;background:var(--ink);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 70% 50%,rgba(192,154,86,0.06) 0%,transparent 70%);}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 80px;position:relative;z-index:2;}
+.h-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:36px;}
+.h-line{width:32px;height:1px;background:var(--gold);}
+.h-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:74px;font-weight:300;color:white;line-height:1.04;margin-bottom:12px;}
+.hero h1 strong{font-weight:700;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-loc{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:30px;}
+.hero-desc{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.9;max-width:420px;margin-bottom:48px;font-weight:300;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--ink);padding:15px 34px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background 0.3s;display:inline-block;font-family:'DM Sans',sans-serif;}
+.btn-gold:hover{background:var(--gold2);}
+.btn-ghost{border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);padding:15px 34px;font-size:12px;font-weight:400;letter-spacing:1px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all 0.3s;display:inline-block;font-family:'DM Sans',sans-serif;background:none;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-creds{display:flex;gap:28px;margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.07);flex-wrap:wrap;}
+.hc-item{display:flex;align-items:center;gap:10px;}
+.hc-icon{width:38px;height:38px;border:1px solid rgba(192,154,86,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.hc-text strong{display:block;font-size:13px;color:rgba(255,255,255,0.85);font-weight:500;}
+.hc-text span{font-size:11px;color:rgba(255,255,255,0.4);}
+.hero-right{position:relative;overflow:hidden;}
+.hero-right img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%);transition:filter 8s ease;}
+.hero-right:hover img{filter:grayscale(0%);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(270deg,transparent 40%,rgba(8,14,24,0.5) 100%);}
+.hero-caption{position:absolute;bottom:48px;left:48px;}
+.hero-caption .tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.hero-caption h3{font-family:'Cormorant Garamond',serif;font-size:26px;color:white;font-weight:300;}
+.hero-scroll{position:absolute;bottom:40px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.scroll-line{width:1px;height:52px;background:rgba(255,255,255,0.2);animation:scrollAnim 2s ease-in-out infinite;}
+@keyframes scrollAnim{0%,100%{transform:scaleY(0.5);opacity:0.3;}50%{transform:scaleY(1);opacity:1;}}
+.scroll-txt{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);writing-mode:vertical-rl;}
+
+/* ── TICKER ── */
+.ticker{background:var(--gold);padding:16px 0;overflow:hidden;white-space:nowrap;}
+.ticker-inner{display:inline-flex;animation:ticker 28s linear infinite;}
+.t-item{display:inline-flex;align-items:center;gap:14px;padding:0 48px;font-size:12px;font-weight:600;color:var(--ink);letter-spacing:1.5px;text-transform:uppercase;}
+.t-dot{width:4px;height:4px;background:rgba(8,14,24,0.35);border-radius:50%;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ── TRUST BAR ── */
+.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
+.tb-item{padding:32px 36px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:4px;}
+.tb-item:last-child{border-right:none;}
+.tb-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);}
+.tb-val{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--ink);line-height:1.1;}
+.tb-sub{font-size:12px;color:var(--grey);font-weight:300;}
+
+/* ── SECTIONS COMMON ── */
+.sec{padding:100px 80px;}
+.sec-inner{max-width:1200px;margin:0 auto;}
+.sec-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--gold);}
+.sec-h2{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--ink);line-height:1.1;margin-bottom:16px;}
+.sec-h2 em{font-style:italic;color:var(--gold);}
+.sec-sub{font-size:15px;color:var(--grey);line-height:1.85;font-weight:300;}
+.btn-dark{background:var(--ink);color:white;padding:14px 32px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background 0.3s;display:inline-block;font-family:'DM Sans',sans-serif;}
+.btn-dark:hover{background:var(--gold);color:var(--ink);}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img-wrap img{width:100%;height:560px;object-fit:cover;display:block;}
+.about-badge{position:absolute;bottom:0;right:-24px;background:var(--ink);padding:28px 32px;width:190px;}
+.about-badge .big{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--gold);line-height:1;}
+.about-badge p{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.about-text p{font-size:15px;color:var(--grey);line-height:1.9;font-weight:300;margin-bottom:16px;}
+.about-quote{border-left:2px solid var(--gold);padding:20px 28px;margin:28px 0;font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--ink2);line-height:1.6;background:var(--off);}
+.cv-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;}
+.cv-box{background:var(--off);border:1px solid var(--border);padding:16px 18px;}
+.cv-box strong{font-size:13px;color:var(--ink);display:block;margin-bottom:3px;}
+.cv-box span{font-size:12px;color:var(--grey);}
+.cv-box .cert{font-size:10px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-top:5px;display:block;}
+
+/* ── SERVICES ── */
+.services-bg{background:var(--ink);}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;}
+.svc-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:40px 32px;position:relative;overflow:hidden;transition:all 0.4s;cursor:default;}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width 0.4s;}
+.svc-card:hover{background:rgba(192,154,86,0.07);border-color:rgba(192,154,86,0.25);}
+.svc-card:hover::after{width:100%;}
+.svc-img{width:100%;height:160px;object-fit:cover;margin-bottom:24px;opacity:0.7;transition:opacity 0.4s;filter:grayscale(20%);}
+.svc-card:hover .svc-img{opacity:1;filter:grayscale(0%);}
+.svc-n{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:rgba(192,154,86,0.1);line-height:1;margin-bottom:6px;}
+.svc-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:white;margin-bottom:10px;font-weight:600;}
+.svc-card p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.8;margin-bottom:18px;font-weight:300;}
+.svc-list{list-style:none;}
+.svc-list li{font-size:12px;color:rgba(255,255,255,0.3);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:center;}
+.svc-list li::before{content:'—';color:var(--gold);font-size:10px;flex-shrink:0;}
+.svc-cta{margin-top:24px;display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-decoration:none;cursor:pointer;transition:opacity 0.2s;}
+.svc-cta:hover{opacity:0.7;}
+
+/* ── COMPARE ── */
+.compare-bg{background:var(--off);}
+.ctable{width:100%;border-collapse:collapse;background:white;box-shadow:0 4px 40px rgba(0,0,0,0.06);}
+.ctable th{padding:16px 20px;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-align:left;border-bottom:2px solid var(--ink);}
+.ctable th.hl{background:var(--ink);color:var(--gold);}
+.ctable td{padding:14px 20px;font-size:13px;border-bottom:1px solid var(--border);color:var(--grey);}
+.ctable td:first-child{color:var(--ink);font-weight:500;font-size:14px;}
+.ctable .hlcol{background:rgba(192,154,86,0.05);color:var(--ink);font-weight:600;}
+.ctable tr:hover td{background:var(--off);}
+.tick{color:var(--green);font-weight:700;}
+.cross{color:#dc2626;}
+
+/* ── PROCESS ── */
+.process-bg{background:var(--ink);}
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:64px;position:relative;}
+.proc-grid::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:rgba(255,255,255,0.08);}
+.proc-item{text-align:center;padding:0 16px;position:relative;z-index:2;}
+.proc-circle{width:64px;height:64px;border:1px solid rgba(192,154,86,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;background:var(--ink);font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);}
+.proc-emoji{font-size:18px;margin-bottom:8px;display:block;}
+.proc-item h4{font-family:'Cormorant Garamond',serif;font-size:17px;color:white;margin-bottom:8px;}
+.proc-item p{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;font-weight:300;}
+
+/* ── CHARTS ── */
+.charts-bg{background:var(--off);}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px;}
+.chart-box{background:white;border:1px solid var(--border);padding:40px;}
+.chart-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:6px;}
+.chart-box .cp{font-size:13px;color:var(--grey);margin-bottom:28px;}
+.chart-h{height:270px;position:relative;}
+
+/* ── PROJECT GRID ── */
+.projects-bg{background:white;}
+.proj-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;}
+.proj-header-right{font-size:14px;color:var(--grey);max-width:260px;text-align:right;line-height:1.7;}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;gap:3px;}
+.proj-card{position:relative;overflow:hidden;background:var(--ink);}
+.proj-card.tall{grid-row:span 2;}
+.proj-card.wide{grid-column:span 2;}
+.proj-card img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%);transition:transform 0.7s ease,filter 0.5s;}
+.proj-card:hover img{transform:scale(1.05);filter:grayscale(0%);}
+.proj-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background 0.4s;}
+.proj-card:hover .proj-overlay{background:rgba(0,0,0,0.45);}
+.proj-info{position:absolute;bottom:0;left:0;right:0;padding:28px;transform:translateY(6px);opacity:0;transition:all 0.35s;}
+.proj-card:hover .proj-info{opacity:1;transform:translateY(0);}
+.proj-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.proj-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:white;font-weight:400;}
+.proj-loc{font-size:11px;color:rgba(255,255,255,0.55);margin-top:3px;}
+
+/* ── AREAS ── */
+.areas-bg{background:var(--off);}
+.areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;align-items:start;}
+.area-box{background:white;border:1px solid var(--border);padding:36px;}
+.area-box h4{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:20px;}
+.area-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.area-row:last-of-type{border-bottom:none;}
+.area-name{color:var(--ink);font-weight:500;display:flex;align-items:center;gap:8px;}
+.area-km{font-size:12px;color:var(--gold);font-weight:600;}
+.area-note{background:rgba(192,154,86,0.08);border-left:2px solid var(--gold);padding:14px 18px;margin-top:16px;font-size:13px;color:var(--grey);}
+.faq-wrap h4{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--ink);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{padding:18px 0;font-size:14px;font-weight:500;color:var(--ink);display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+.faq-icon{color:var(--gold);font-size:18px;flex-shrink:0;margin-left:14px;}
+.faq-a{display:none;padding:0 0 16px;font-size:13px;color:var(--grey);line-height:1.75;font-weight:300;}
+
+/* ── REVIEWS ── */
+.reviews-bg{background:white;}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+.rev-card{background:var(--off);border:1px solid var(--border);padding:36px;position:relative;transition:all 0.3s;}
+.rev-card:hover{border-color:var(--ink);box-shadow:0 12px 48px rgba(0,0,0,0.07);}
+.rev-mark{position:absolute;top:16px;right:22px;font-family:'Cormorant Garamond',serif;font-size:72px;color:var(--gold);opacity:0.12;line-height:1;}
+.rev-service{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:rgba(192,154,86,0.1);padding:4px 12px;display:inline-block;margin-bottom:12px;}
+.rev-stars{color:var(--gold);font-size:15px;letter-spacing:2px;margin-bottom:14px;}
+.rev-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--ink2);line-height:1.7;margin-bottom:24px;}
+.rev-author{display:flex;align-items:center;gap:12px;}
+.rev-avatar{width:42px;height:42px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--gold);}
+.rev-name{font-size:14px;font-weight:600;color:var(--ink);}
+.rev-area{font-size:11px;color:var(--grey);}
+.rev-note{margin-top:36px;padding:18px 24px;background:var(--off);border:1px dashed rgba(192,154,86,0.35);font-size:13px;color:var(--grey);text-align:center;border-radius:0;}
+.rev-note a{color:var(--gold);text-decoration:none;}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:var(--ink);padding:80px;text-align:center;position:relative;overflow:hidden;}
+.cta-banner::before{content:'CLEAN';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:280px;font-weight:700;color:rgba(255,255,255,0.015);pointer-events:none;white-space:nowrap;}
+.cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:300;color:white;margin-bottom:16px;position:relative;}
+.cta-banner h2 em{font-style:italic;color:var(--gold);}
+.cta-banner p{color:rgba(255,255,255,0.45);font-size:15px;margin-bottom:40px;font-weight:300;position:relative;}
+.cta-banner .hero-btns{justify-content:center;position:relative;}
+
+/* ── FOOTER ── */
+footer{background:#060c14;padding:72px 80px 32px;}
+.footer-grid{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:56px;}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:white;margin-bottom:14px;display:block;cursor:pointer;}
+.f-logo span{color:var(--gold);}
+.f-brand p{color:rgba(255,255,255,0.3);font-size:13px;line-height:1.8;max-width:250px;font-weight:300;}
+.f-badges{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;}
+.f-badge{border:1px solid rgba(192,154,86,0.2);color:var(--gold);font-size:9px;letter-spacing:1.5px;padding:5px 10px;text-transform:uppercase;}
+.f-col h5{color:rgba(255,255,255,0.35);font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;}
+.f-col ul{list-style:none;}
+.f-col ul li{margin-bottom:10px;}
+.f-col ul li a{color:rgba(255,255,255,0.3);text-decoration:none;font-size:13px;font-weight:300;cursor:pointer;transition:color 0.2s;}
+.f-col ul li a:hover{color:var(--gold);}
+.f-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;display:flex;justify-content:space-between;color:rgba(255,255,255,0.18);font-size:12px;}
+
+/* ── WHATSAPP ── */
+.wa{position:fixed;bottom:28px;right:28px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;z-index:500;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,0.4);transition:transform 0.3s;}
+.wa:hover{transform:scale(1.1);}
+
+/* ── REVEAL ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+.hero-left>*{animation:fadeUp 0.8s ease forwards;opacity:0;}
+.hero-left>*:nth-child(1){animation-delay:0.1s;}
+.hero-left>*:nth-child(2){animation-delay:0.25s;}
+.hero-left>*:nth-child(3){animation-delay:0.35s;}
+.hero-left>*:nth-child(4){animation-delay:0.45s;}
+.hero-left>*:nth-child(5){animation-delay:0.6s;}
+.hero-left>*:nth-child(6){animation-delay:0.75s;}
+.reveal{opacity:0;transform:translateY(22px);transition:all 0.65s ease;}
+.reveal.on{opacity:1;transform:translateY(0);}
+
+/* ══════════════════════════════
+   QUOTE FORM PAGE
+══════════════════════════════ */
+.qf-nav{background:var(--ink);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.qf-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:white;cursor:pointer;}
+.qf-logo span{color:var(--gold);}
+.qf-back{font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;}
+.qf-back:hover{color:var(--gold);}
+.qf-progress{height:3px;background:var(--border);position:sticky;top:64px;z-index:199;}
+.qf-prog-fill{height:100%;background:var(--gold);transition:width 0.4s ease;}
+.qf-hero{background:var(--ink);padding:60px 48px 52px;text-align:center;}
+.qf-hero .eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.qf-hero h1{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:white;line-height:1.1;margin-bottom:14px;}
+.qf-hero h1 em{font-style:italic;color:var(--gold);}
+.qf-hero p{font-size:14px;color:rgba(255,255,255,0.45);max-width:500px;margin:0 auto;line-height:1.8;font-weight:300;}
+.steps-tabs{background:white;border-bottom:1px solid var(--border);display:flex;overflow-x:auto;padding:0 32px;}
+.stab{display:flex;align-items:center;gap:9px;padding:16px 20px;font-size:11px;font-weight:500;color:var(--grey);border-bottom:2px solid transparent;white-space:nowrap;flex-shrink:0;letter-spacing:0.3px;}
+.stab.active{color:var(--ink);border-bottom-color:var(--ink);}
+.stab.done{color:var(--green);}
+.stab-n{width:20px;height:20px;border-radius:50%;background:var(--border);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;}
+.stab.active .stab-n{background:var(--ink);color:white;}
+.stab.done .stab-n{background:var(--green);color:white;}
+.qf-body{max-width:820px;margin:0 auto;padding:52px 24px 80px;}
+.qpanel{display:none;}
+.qpanel.active{display:block;}
+.qp-head{margin-bottom:40px;}
+.qp-head .qlabel{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.qp-head h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:400;color:var(--ink);margin-bottom:8px;line-height:1.2;}
+.qp-head p{font-size:13px;color:var(--grey);line-height:1.7;font-weight:300;}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:32px;}
+.opts.two{grid-template-columns:1fr 1fr;}
+.opts.four{grid-template-columns:repeat(4,1fr);}
+.opt{border:1px solid var(--border);background:white;padding:18px 16px;cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;gap:7px;position:relative;}
+.opt:hover{border-color:var(--ink);}
+.opt.sel{border-color:var(--ink);background:var(--ink);}
+.opt.sel .ot,.opt.sel .os{color:white!important;}
+.opt-ck{position:absolute;top:10px;right:10px;width:18px;height:18px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;}
+.opt.sel .opt-ck{background:var(--gold);border-color:var(--gold);color:white;}
+.oi{font-size:26px;margin-bottom:2px;}
+.ot{font-size:13px;font-weight:600;color:var(--ink);}
+.os{font-size:11px;color:var(--grey);line-height:1.4;}
+.extras-g{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:28px;}
+.ext{border:1px solid var(--border);background:white;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all 0.2s;}
+.ext:hover{border-color:var(--gold);}
+.ext.sel{border-color:var(--gold);background:rgba(192,154,86,0.05);}
+.ext-cb{width:18px;height:18px;border:1px solid var(--border);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;transition:all 0.2s;color:transparent;}
+.ext.sel .ext-cb{background:var(--gold);border-color:var(--gold);color:white;}
+.ext-ico{font-size:18px;flex-shrink:0;}
+.ext-tx strong{font-size:13px;color:var(--ink);display:block;}
+.ext-tx span{font-size:11px;color:var(--grey);}
+.cond-g{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:28px;}
+.cond{border:1px solid var(--border);background:white;padding:18px 14px;cursor:pointer;text-align:center;transition:all 0.2s;}
+.cond:hover{border-color:var(--ink);}
+.cond.sel{border-color:var(--ink);background:var(--ink);}
+.cond.sel .ct,.cond.sel .cs{color:white!important;}
+.ce{font-size:26px;margin-bottom:8px;}
+.ct{font-size:12px;font-weight:600;color:var(--ink);}
+.cs{font-size:11px;color:var(--grey);margin-top:3px;line-height:1.4;}
+.upload-zone{border:2px dashed var(--border);background:white;padding:44px;text-align:center;cursor:pointer;position:relative;transition:all 0.2s;margin-bottom:20px;}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--gold);background:rgba(192,154,86,0.03);}
+.upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.uz-icon{font-size:36px;margin-bottom:10px;}
+.uz-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.uz-sub{font-size:12px;color:var(--grey);line-height:1.6;}
+.photo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;}
+.ph-wrap{position:relative;aspect-ratio:1;overflow:hidden;border:1px solid var(--border);}
+.ph-wrap img{width:100%;height:100%;object-fit:cover;}
+.ph-del{position:absolute;top:4px;right:4px;width:20px;height:20px;background:rgba(0,0,0,0.7);color:white;border:none;cursor:pointer;border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center;}
+.photo-tip{font-size:12px;color:var(--grey);background:var(--off);padding:12px 16px;border-left:2px solid var(--gold);line-height:1.6;}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px;}
+.fg.one{grid-template-columns:1fr;}
+.f{display:flex;flex-direction:column;gap:7px;}
+.f.full{grid-column:span 2;}
+.f label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);font-weight:500;}
+.f input,.f select,.f textarea{padding:12px 15px;border:1px solid var(--border);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;background:white;color:var(--ink);transition:border 0.2s;width:100%;}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--ink);}
+.f textarea{resize:vertical;min-height:90px;}
+.div-line{height:1px;background:var(--border);margin:28px 0;}
+.sub-title{font-size:11px;font-weight:600;color:var(--ink);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.sub-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.form-nav{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);margin-top:8px;}
+.btn-back{background:none;border:1px solid var(--border);color:var(--grey);padding:12px 24px;font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-back:hover{border-color:var(--ink);color:var(--ink);}
+.btn-next{background:var(--ink);color:white;border:none;padding:13px 32px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.3s;}
+.btn-next:hover{background:var(--gold);color:var(--ink);}
+.btn-next:disabled{background:var(--border);color:var(--grey);cursor:not-allowed;}
+.btn-submit{background:var(--gold);color:var(--ink);border:none;padding:15px 36px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.3s;}
+.btn-submit:hover{background:var(--gold2);}
+.sum-box{background:white;border:1px solid var(--border);padding:32px;margin-bottom:24px;}
+.sum-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:18px;}
+.sum-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;gap:16px;}
+.sum-row:last-child{border-bottom:none;}
+.sl{color:var(--grey);}
+.sv{color:var(--ink);font-weight:500;text-align:right;}
+.sum-note{background:rgba(192,154,86,0.07);border-left:2px solid var(--gold);padding:14px 18px;font-size:13px;color:var(--mid);line-height:1.7;margin-top:16px;}
+.loading-p{text-align:center;padding:60px;}
+.spin{width:44px;height:44px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 18px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.success-p{text-align:center;padding:60px 24px;}
+.success-p .sico{font-size:60px;margin-bottom:20px;}
+.success-p h2{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--ink);margin-bottom:14px;}
+.success-p h2 em{font-style:italic;color:var(--gold);}
+.success-p>p{font-size:15px;color:var(--grey);max-width:460px;margin:0 auto 36px;line-height:1.8;font-weight:300;}
+.suc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:560px;margin:0 auto 36px;}
+.ss{background:var(--off);border:1px solid var(--border);padding:22px 18px;text-align:center;}
+.ss-n{width:32px;height:32px;background:var(--ink);color:white;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
+.ss h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.ss p{font-size:11px;color:var(--grey);}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  nav ul{display:none;}
+  .nav-mobile-menu{display:flex;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-right{height:55vw;}
+  .hero-left{padding:48px 24px 36px;}
+  .hero h1{font-size:44px;}
+  .hero-creds{gap:16px;}
+  .hero-btns{flex-direction:column;}
+  .trust-bar{grid-template-columns:1fr 1fr;}
+  .tb-item:nth-child(2){border-right:none;}
+  .about-grid{grid-template-columns:1fr;gap:36px;}
+  .about-img-wrap img{height:300px;}
+  .about-badge{right:0;bottom:-24px;}
+  .cv-grid{grid-template-columns:1fr;}
+  .sec{padding:60px 24px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .charts-grid{grid-template-columns:1fr;}
+  .proj-grid{grid-template-columns:1fr 1fr;}
+  .proj-card.tall{grid-row:auto;}
+  .proj-card.wide{grid-column:auto;}
+  .areas-grid,.footer-grid{grid-template-columns:1fr;gap:32px;}
+  .rev-grid{grid-template-columns:1fr;}
+  .proc-grid{grid-template-columns:1fr 1fr;gap:28px;}
+  .proc-grid::before{display:none;}
+  .cta-banner{padding:60px 24px;}
+  .cta-banner h2{font-size:40px;}
+  .f-bottom{flex-direction:column;gap:6px;}
+  .opts,.opts.four{grid-template-columns:1fr 1fr!important;}
+  .opts.two{grid-template-columns:1fr!important;}
+  .cond-g{grid-template-columns:1fr 1fr;}
+  .extras-g{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr!important;}
+  .f.full{grid-column:span 1!important;}
+  .photo-grid{grid-template-columns:repeat(3,1fr);}
+  .suc-steps{grid-template-columns:1fr;}
+  .qf-nav{padding:0 20px;}
+  .qf-body{padding:36px 16px 60px;}
+}
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/447741807713" class="wa" title="Chat on WhatsApp">💬</a>
+
+<!-- ═══════════════════════════════════
+     PAGE 1 — MAIN SITE
+═══════════════════════════════════ -->
+<div class="page active" id="mainPage">
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="logo" onclick="scrollTo(0,0)">PureNest<span>.</span><sub>Cleaning Specialists</sub></div>
+  <ul class="nav-links">
+    <li><a onclick="scrollToSec('about')">About</a></li>
+    <li><a onclick="scrollToSec('services')">Services</a></li>
+    <li><a onclick="scrollToSec('work')">Our Work</a></li>
+    <li><a onclick="scrollToSec('areas')">Areas</a></li>
+    <li><a onclick="openQuoteForm()" class="nav-quote">Get a Quote</a></li>
+  </ul>
+  <div class="nav-mobile-menu" onclick="openQuoteForm()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-left">
+    <div class="h-eyebrow"><div class="h-line"></div><span class="h-tag">Surrey & Guildford · Est. 2025</span></div>
+    <h1>Where <em>Immaculate</em><br><strong>Meets</strong><br>Affordable.</h1>
+    <p class="hero-loc">📍 Guildford · Woking · Farnham · Surrey</p>
+    <p class="hero-desc">Hotel-trained professional bringing 10+ years of 5-star hospitality standards to your home. End-of-tenancy, deep cleans, move in/out — done right, first time.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="openQuoteForm()">📋 Get Your Free Quote</button>
+      <button class="btn-ghost" onclick="scrollToSec('services')">View Services</button>
+    </div>
+    <div class="hero-creds">
+      <div class="hc-item"><div class="hc-icon">🏨</div><div class="hc-text"><strong>Hyatt Trained</strong><span>Luxury hotel standards</span></div></div>
+      <div class="hc-item"><div class="hc-icon">📋</div><div class="hc-text"><strong>HACCP Level 2</strong><span>Hygiene certified</span></div></div>
+      <div class="hc-item"><div class="hc-icon">🔐</div><div class="hc-text"><strong>Fully Insured</strong><span>DBS checked</span></div></div>
+      <div class="hc-item"><div class="hc-icon">🌿</div><div class="hc-text"><strong>Eco Products</strong><span>Safe for family & pets</span></div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85" alt="Professional cleaning">
+    <div class="hero-overlay"></div>
+    <div class="hero-caption"><div class="tag">Featured Service</div><h3>End of Tenancy · Guildford</h3></div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-txt">Scroll</span></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="t-item">🏨 Hyatt Regency Trained</span><span class="t-dot"></span>
+    <span class="t-item">📋 HACCP Level 2 Certified</span><span class="t-dot"></span>
+    <span class="t-item">✅ Fully Insured & DBS Checked</span><span class="t-dot"></span>
+    <span class="t-item">🔑 End of Tenancy Specialists</span><span class="t-dot"></span>
+    <span class="t-item">🌿 Eco-Friendly Products</span><span class="t-dot"></span>
+    <span class="t-item">⭐ 72hr Guarantee</span><span class="t-dot"></span>
+    <span class="t-item">📍 Surrey & Guildford</span><span class="t-dot"></span>
+    <span class="t-item">🏨 Hyatt Regency Trained</span><span class="t-dot"></span>
+    <span class="t-item">📋 HACCP Level 2 Certified</span><span class="t-dot"></span>
+    <span class="t-item">✅ Fully Insured & DBS Checked</span><span class="t-dot"></span>
+    <span class="t-item">🔑 End of Tenancy Specialists</span><span class="t-dot"></span>
+    <span class="t-item">🌿 Eco-Friendly Products</span><span class="t-dot"></span>
+    <span class="t-item">⭐ 72hr Guarantee</span><span class="t-dot"></span>
+    <span class="t-item">📍 Surrey & Guildford</span><span class="t-dot"></span>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar reveal">
+  <div class="tb-item"><span class="tb-label">Training</span><span class="tb-val">Hyatt</span><span class="tb-sub">Regency Delhi — Luxury Hotel</span></div>
+  <div class="tb-item"><span class="tb-label">Certification</span><span class="tb-val">HACCP</span><span class="tb-sub">Level 2 Food & Hygiene</span></div>
+  <div class="tb-item"><span class="tb-label">Guarantee</span><span class="tb-val">72hr</span><span class="tb-sub">Free reclean if not satisfied</span></div>
+  <div class="tb-item"><span class="tb-label">Coverage</span><span class="tb-val">Surrey</span><span class="tb-sub">Guildford & surrounding areas</span></div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about" style="background:var(--white);">
+  <div class="sec-inner">
+    <div class="about-grid reveal">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=700&q=85" alt="Professional cleaner">
+        <div class="about-badge"><div class="big">10+</div><p>Years Experience</p></div>
+      </div>
+      <div class="about-text">
+        <div class="sec-tag">About PureNest</div>
+        <h2 class="sec-h2">Trained in Luxury.<br>Working for <em>You.</em></h2>
+        <p>PureNest was founded by <strong>Pankaj Kaul</strong> — a hospitality professional with over 10 years of international experience in luxury hotels across India, Dubai, and the UK.</p>
+        <p>Trained at <strong>Hyatt Regency Delhi</strong> and F&B Supervisor at <strong>Time Oak Hotel Dubai</strong>, Pankaj brings the meticulous standards of 5-star housekeeping directly to your property.</p>
+        <div class="about-quote">"Every property I clean receives the same attention I gave to luxury hotel suites — because your home deserves nothing less."</div>
+        <div class="cv-grid">
+          <div class="cv-box"><strong>Hyatt Regency Delhi</strong><span>Training — F&B, Housekeeping, Front Office</span><span class="cert">★ Luxury Hotel</span></div>
+          <div class="cv-box"><strong>Time Oak Hotel, Dubai</strong><span>F&B Supervisor · 5 Years</span><span class="cert">★ 5-Star Standards</span></div>
+          <div class="cv-box"><strong>HACCP Level 2</strong><span>Food Safety & Hygiene</span><span class="cert">★ Certified</span></div>
+          <div class="cv-box"><strong>MSc Hotel Management</strong><span>University of Surrey (2026)</span><span class="cert">★ Surrey University</span></div>
+        </div>
+        <div style="margin-top:28px;">
+          <button class="btn-dark" onclick="openQuoteForm()">Get Your Free Quote →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec services-bg" id="services">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-tag" style="color:var(--gold);">What We Do</div>
+      <h2 class="sec-h2" style="color:white;">Every Clean,<br><em>Perfectly Done.</em></h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,0.45);">Specialist services for homes, rentals & landlords across Surrey. No prices shown — we quote personally after reviewing your property.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <div class="svc-card">
+        <img class="svc-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="End of Tenancy">
+        <div class="svc-n">01</div>
+        <h3>End of Tenancy</h3>
+        <p>Our most requested service. Full property deep clean to get your deposit back — guaranteed.</p>
+        <ul class="svc-list">
+          <li>Full kitchen degreasing & oven</li>
+          <li>Bathroom descale & sanitise</li>
+          <li>Inside cupboards & windows</li>
+          <li>Skirting boards & light switches</li>
+          <li>72-hour reclean guarantee</li>
+        </ul>
+        <span class="svc-cta" onclick="openQuoteForm()">Get a Quote →</span>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80" alt="Deep Clean">
+        <div class="svc-n">02</div>
+        <h3>Deep Cleaning</h3>
+        <p>Intensive top-to-bottom clean that reaches where regular cleaning never does.</p>
+        <ul class="svc-list">
+          <li>Behind appliances & furniture</li>
+          <li>Grout, tile & limescale removal</li>
+          <li>Extractor fans & air vents</li>
+          <li>Odour elimination treatment</li>
+        </ul>
+        <span class="svc-cta" onclick="openQuoteForm()">Get a Quote →</span>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=500&q=80" alt="Move In">
+        <div class="svc-n">03</div>
+        <h3>Move In / Move Out</h3>
+        <p>Hotel-standard preparation before you unpack a single box in your new home.</p>
+        <ul class="svc-list">
+          <li>Full sanitisation throughout</li>
+          <li>Inside all cupboards & drawers</li>
+          <li>Window & glass polishing</li>
+          <li>Flexible around moving day</li>
+        </ul>
+        <span class="svc-cta" onclick="openQuoteForm()">Get a Quote →</span>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&q=80" alt="Regular Clean">
+        <div class="svc-n">04</div>
+        <h3>Regular Home Clean</h3>
+        <p>Weekly or fortnightly maintenance cleans. Consistent, reliable, tailored to you.</p>
+        <ul class="svc-list">
+          <li>Hoovering, mopping & dusting</li>
+          <li>Kitchen & bathroom refresh</li>
+          <li>Same cleaner every visit</li>
+          <li>Key-holding available</li>
+        </ul>
+        <span class="svc-cta" onclick="openQuoteForm()">Get a Quote →</span>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80" alt="After Builders">
+        <div class="svc-n">05</div>
+        <h3>After-Builder Clean</h3>
+        <p>Post-renovation dust & debris removal. Restore your space after building work.</p>
+        <ul class="svc-list">
+          <li>Construction dust removal</li>
+          <li>Paint splatter removal</li>
+          <li>Window & glass restoration</li>
+          <li>Full sanitise & polish</li>
+        </ul>
+        <span class="svc-cta" onclick="openQuoteForm()">Get a Quote →</span>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=500&q=80" alt="Landlord">
+        <div class="svc-n">06</div>
+        <h3>Landlord & Agent Services</h3>
+        <p>Reliable partner for property turnovers between tenancies across Surrey.</p>
+        <ul class="svc-list">
+          <li>Priority scheduling available</li>
+          <li>Before & after photo reports</li>
+          <li>Inventory-ready cleans</li>
+          <li>Trade rates for multiple properties</li>
+        </ul>
+        <span class="svc-cta" onclick="openQuoteForm()">Get a Quote →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR WORK / PROJECTS -->
+<section class="sec projects-bg" id="work">
+  <div class="sec-inner">
+    <div class="proj-header reveal">
+      <div>
+        <div class="sec-tag">Our Work</div>
+        <h2 class="sec-h2">Results That<br>Speak for <em>Themselves.</em></h2>
+      </div>
+      <p class="proj-header-right">Before & after transformations across Surrey properties. Hotel-grade standard every time.</p>
+    </div>
+    <div class="proj-grid reveal">
+      <div class="proj-card tall">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=85" alt="Kitchen">
+        <div class="proj-overlay"></div>
+        <div class="proj-info"><div class="proj-tag">Deep Clean</div><div class="proj-title">Kitchen Transformation</div><div class="proj-loc">Guildford, Surrey</div></div>
+      </div>
+      <div class="proj-card">
+        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=85" alt="Bathroom">
+        <div class="proj-overlay"></div>
+        <div class="proj-info"><div class="proj-tag">End of Tenancy</div><div class="proj-title">2-Bed Flat Move-Out</div><div class="proj-loc">Woking, Surrey</div></div>
+      </div>
+      <div class="proj-card">
+        <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&q=85" alt="Bathroom">
+        <div class="proj-overlay"></div>
+        <div class="proj-info"><div class="proj-tag">Deep Clean</div><div class="proj-title">Bathroom Revival</div><div class="proj-loc">Farnham, Surrey</div></div>
+      </div>
+      <div class="proj-card wide">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85" alt="Living Room">
+        <div class="proj-overlay"></div>
+        <div class="proj-info"><div class="proj-tag">Regular Clean</div><div class="proj-title">3-Bed Home — Weekly Service</div><div class="proj-loc">Godalming, Surrey</div></div>
+      </div>
+      <div class="proj-card">
+        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=85" alt="After Builders">
+        <div class="proj-overlay"></div>
+        <div class="proj-info"><div class="proj-tag">After Builders</div><div class="proj-title">Post-Renovation Clean</div><div class="proj-loc">Leatherhead, Surrey</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="sec compare-bg" id="compare">
+  <div class="sec-inner reveal">
+    <div class="sec-tag">Why PureNest</div>
+    <h2 class="sec-h2">PureNest vs <em>The Rest</em></h2>
+    <p class="sec-sub" style="margin-bottom:40px;">How we compare to typical Surrey cleaning companies.</p>
+    <table class="ctable">
+      <thead>
+        <tr><th>Feature</th><th class="hl">PureNest ✦</th><th>Agency Cleaners</th><th>Gumtree / Freelance</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Hotel-trained professional</td><td class="hlcol"><span class="tick">✓</span> Hyatt & Dubai hotels</td><td><span class="cross">✗</span> Unlikely</td><td><span class="cross">✗</span> No</td></tr>
+        <tr><td>HACCP hygiene certified</td><td class="hlcol"><span class="tick">✓</span> Level 2</td><td><span class="cross">✗</span> Not usually</td><td><span class="cross">✗</span> No</td></tr>
+        <tr><td>Fully insured</td><td class="hlcol"><span class="tick">✓</span> Yes</td><td><span class="tick">✓</span> Usually</td><td><span class="cross">✗</span> Rarely</td></tr>
+        <tr><td>DBS checked</td><td class="hlcol"><span class="tick">✓</span> Yes</td><td><span class="tick">✓</span> Sometimes</td><td><span class="cross">✗</span> No</td></tr>
+        <tr><td>Same person every visit</td><td class="hlcol"><span class="tick">✓</span> Always</td><td><span class="cross">✗</span> Rotating staff</td><td><span class="tick">✓</span> Yes</td></tr>
+        <tr><td>Eco-friendly products</td><td class="hlcol"><span class="tick">✓</span> Always</td><td><span class="cross">✗</span> Not standard</td><td><span class="cross">✗</span> Varies</td></tr>
+        <tr><td>72-hr reclean guarantee</td><td class="hlcol"><span class="tick">✓</span> Written</td><td><span class="cross">✗</span> No</td><td><span class="cross">✗</span> No</td></tr>
+        <tr><td>Weekend availability</td><td class="hlcol"><span class="tick">✓</span> 7 days</td><td><span class="cross">✗</span> Weekdays only</td><td><span class="tick">✓</span> Sometimes</td></tr>
+        <tr><td>Direct WhatsApp contact</td><td class="hlcol"><span class="tick">✓</span> Direct line</td><td><span class="cross">✗</span> Call centre</td><td><span class="tick">✓</span> Direct</td></tr>
+        <tr><td>Personalised quote</td><td class="hlcol"><span class="tick">✓</span> Always</td><td><span class="cross">✗</span> Fixed price lists</td><td><span class="cross">✗</span> Varies</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec process-bg" id="process">
+  <div class="sec-inner">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:0;">
+      <div>
+        <div class="sec-tag" style="color:var(--gold);">How It Works</div>
+        <h2 class="sec-h2" style="color:white;margin-bottom:0;">Booked. Cleaned. <em>Impressed.</em></h2>
+      </div>
+      <button class="btn-gold" onclick="openQuoteForm()">Start Your Quote →</button>
+    </div>
+    <div class="proc-grid reveal">
+      <div class="proc-item"><span class="proc-emoji">📋</span><div class="proc-circle">1</div><h4>Fill the Form</h4><p>Tell us about your property, rooms and any extras needed. Upload photos.</p></div>
+      <div class="proc-item"><span class="proc-emoji">📧</span><div class="proc-circle">2</div><h4>We Review</h4><p>Pankaj reviews your details and photos personally within 2 hours.</p></div>
+      <div class="proc-item"><span class="proc-emoji">💬</span><div class="proc-circle">3</div><h4>Quote Sent</h4><p>Your personalised quote arrives by email and WhatsApp.</p></div>
+      <div class="proc-item"><span class="proc-emoji">📅</span><div class="proc-circle">4</div><h4>Book Your Slot</h4><p>Confirm the date and time. We arrive fully equipped, on time.</p></div>
+      <div class="proc-item"><span class="proc-emoji">✨</span><div class="proc-circle">5</div><h4>Spotless Home</h4><p>Inspect your space. Not happy? We reclean free — no questions asked.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARTS / EXPERTISE -->
+<section class="sec charts-bg" id="expertise">
+  <div class="sec-inner">
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:52px;">
+      <div><div class="sec-tag">Our Expertise</div><h2 class="sec-h2">Hotel Standards<br><em>In Your Home</em></h2></div>
+      <p class="sec-sub">10+ years of international hospitality training applied to every clean. Here's the precision behind our work.</p>
+    </div>
+    <div class="charts-grid reveal">
+      <div class="chart-box">
+        <h3>Service Expertise</h3>
+        <p class="cp">Skill level across all cleaning disciplines — hotel-trained precision</p>
+        <div class="chart-h"><canvas id="radarChart"></canvas></div>
+      </div>
+      <div class="chart-box">
+        <h3>Housekeeping Time Per Area</h3>
+        <p class="cp">Minutes per zone in a standard clean — 5-star hotel protocol</p>
+        <div class="chart-h"><canvas id="barChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="sec areas-bg" id="areas">
+  <div class="sec-inner">
+    <div class="reveal"><div class="sec-tag">Coverage</div><h2 class="sec-h2">Areas We <em>Serve</em></h2></div>
+    <div class="areas-grid">
+      <div class="reveal">
+        <div class="area-box">
+          <h4>📍 Surrey Coverage</h4>
+          <div class="area-row"><span class="area-name">📌 Guildford</span><span class="area-km">Base</span></div>
+          <div class="area-row"><span class="area-name">📌 Woking</span><span class="area-km">~8 miles</span></div>
+          <div class="area-row"><span class="area-name">📌 Farnham</span><span class="area-km">~12 miles</span></div>
+          <div class="area-row"><span class="area-name">📌 Godalming</span><span class="area-km">~4 miles</span></div>
+          <div class="area-row"><span class="area-name">📌 Leatherhead</span><span class="area-km">~9 miles</span></div>
+          <div class="area-row"><span class="area-name">📌 Dorking</span><span class="area-km">~10 miles</span></div>
+          <div class="area-row"><span class="area-name">📌 Epsom</span><span class="area-km">~14 miles</span></div>
+          <div class="area-row"><span class="area-name">📌 Haslemere</span><span class="area-km">~15 miles</span></div>
+          <div class="area-note">Not listed? Call or WhatsApp to check — we may still cover you.</div>
+        </div>
+      </div>
+      <div class="faq-wrap reveal">
+        <h4>Common Questions</h4>
+        <div class="faq-item"><div class="faq-q">Do you bring your own equipment?<span class="faq-icon">+</span></div><div class="faq-a">Yes — we arrive fully equipped with all professional tools and eco-friendly products. You don't need to provide a thing.</div></div>
+        <div class="faq-item"><div class="faq-q">How do I get a price?<span class="faq-icon">+</span></div><div class="faq-a">Fill in our quote form — tell us about your property and upload some photos. Pankaj will personally review and send you a tailored quote within 2 hours. No price lists, no guesswork.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you guarantee deposit return?<span class="faq-icon">+</span></div><div class="faq-a">We offer a 72-hour reclean guarantee. If your landlord isn't satisfied, we return and reclean the flagged areas — completely free.</div></div>
+        <div class="faq-item"><div class="faq-q">Are you available at weekends?<span class="faq-icon">+</span></div><div class="faq-a">Yes — 7 days a week, 8am to 8pm. Weekend and same-day bookings subject to availability.</div></div>
+        <div class="faq-item"><div class="faq-q">How do I pay?<span class="faq-icon">+</span></div><div class="faq-a">Bank transfer, cash or card on the day. A small deposit may be required for large bookings.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you work with letting agents?<span class="faq-icon">+</span></div><div class="faq-a">Yes — we work closely with landlords and letting agents across Surrey for regular property turnovers. Trade rates available for multiple properties.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec reviews-bg" id="reviews">
+  <div class="sec-inner">
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:0;">
+      <div><div class="sec-tag">Client Reviews</div><h2 class="sec-h2">What Surrey Says<br><em>About Us</em></h2></div>
+      <p class="sec-sub">Early reviews from our first clients across Surrey. We're building our reputation one spotless clean at a time.</p>
+    </div>
+    <div class="rev-grid reveal">
+      <div class="rev-card"><div class="rev-mark">"</div><span class="rev-service">End of Tenancy</span><div class="rev-stars">★★★★★</div><p class="rev-text">"The flat was cleaner than when I first moved in. My letting agent was genuinely impressed. I got my full deposit back without any disputes."</p><div class="rev-author"><div class="rev-avatar">S</div><div><div class="rev-name">Sarah M.</div><div class="rev-area">Guildford, Surrey</div></div></div></div>
+      <div class="rev-card"><div class="rev-mark">"</div><span class="rev-service">Deep Clean</span><div class="rev-stars">★★★★★</div><p class="rev-text">"You can genuinely tell this is someone with hotel training. The level of detail was unlike anything I've experienced from a cleaner before."</p><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">James T.</div><div class="rev-area">Woking, Surrey</div></div></div></div>
+      <div class="rev-card"><div class="rev-mark">"</div><span class="rev-service">Landlord Service</span><div class="rev-stars">★★★★★</div><p class="rev-text">"Reliable, professional, always on time. The before-and-after photos make inventory checks effortless. I recommend PureNest to every landlord."</p><div class="rev-author"><div class="rev-avatar">L</div><div><div class="rev-name">Linda K.</div><div class="rev-area">Letting Agent, Farnham</div></div></div></div>
+    </div>
+    <div class="rev-note reveal">⚠️ PureNest is a newly launched business. The above are from our first clients. <a onclick="openQuoteForm()">Book your clean today</a> and help us build our 5-star reputation!</div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner reveal">
+  <h2>Ready for a <em>Spotless</em> Home?</h2>
+  <p>Fill in our free quote form — no prices, no pressure. Just your details and some photos.</p>
+  <div class="hero-btns">
+    <button class="btn-gold" onclick="openQuoteForm()">📋 Get Your Free Quote</button>
+    <a href="https://wa.me/447741807713" class="btn-ghost">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <span class="f-logo" onclick="scrollTo(0,0)">PureNest<span>.</span></span>
+      <p>Hotel-trained cleaning specialists serving Surrey & Guildford. 5-star standards for every home we touch.</p>
+      <div class="f-badges"><span class="f-badge">HACCP L2</span><span class="f-badge">Insured</span><span class="f-badge">DBS</span><span class="f-badge">Hyatt Trained</span></div>
+    </div>
+    <div class="f-col"><h5>Services</h5><ul><li><a onclick="openQuoteForm()">End of Tenancy</a></li><li><a onclick="openQuoteForm()">Move In / Out</a></li><li><a onclick="openQuoteForm()">Deep Cleaning</a></li><li><a onclick="openQuoteForm()">Regular Clean</a></li><li><a onclick="openQuoteForm()">After Builders</a></li><li><a onclick="openQuoteForm()">Landlord Services</a></li></ul></div>
+    <div class="f-col"><h5>Areas</h5><ul><li><a>Guildford</a></li><li><a>Woking</a></li><li><a>Farnham</a></li><li><a>Godalming</a></li><li><a>Leatherhead</a></li><li><a>Dorking</a></li></ul></div>
+    <div class="f-col"><h5>Contact</h5><ul><li><a href="tel:+447741807713">+44 7741 807713</a></li><li><a href="/cdn-cgi/l/email-protection#c6b6a7a8ada7acada7b3aaf6f686a1aba7afaae8a5a9ab"><span class="__cf_email__" data-cfemail="c1b1a0afaaa0abaaa0b4adf1f181a6aca0a8adefa2aeac">[email&#160;protected]</span></a></li><li><a>Guildford, Surrey, UK</a></li><li><a>Mon–Sun: 8am–8pm</a></li></ul></div>
+  </div>
+  <div class="f-bottom"><span>© 2025 PureNest Cleaning Specialists · Guildford, Surrey</span><span>Privacy Policy · Terms</span></div>
+</footer>
+
+</div><!-- end mainPage -->
+
+
+<!-- ═══════════════════════════════════
+     PAGE 2 — QUOTE FORM
+═══════════════════════════════════ -->
+<div class="page" id="quotePage">
+
+<div class="qf-nav">
+  <span class="qf-logo" onclick="closePage()">PureNest<span>.</span></span>
+  <span class="qf-back" onclick="closePage()">← Back to site</span>
+</div>
+<div class="qf-progress"><div class="qf-prog-fill" id="qfProg" style="width:16.6%"></div></div>
+
+<div class="qf-hero">
+  <p class="eyebrow">Free Quote — No Obligation · No Prices Until We Review</p>
+  <h1>Tell Us About Your <em>Property</em></h1>
+  <p>Fill in the details below and upload some photos. Pankaj will personally review everything and send your tailored quote within 2 hours.</p>
+</div>
+
+<div class="steps-tabs">
+  <div class="stab active" id="st1"><span class="stab-n">1</span>Service</div>
+  <div class="stab" id="st2"><span class="stab-n">2</span>Property</div>
+  <div class="stab" id="st3"><span class="stab-n">3</span>Rooms & Extras</div>
+  <div class="stab" id="st4"><span class="stab-n">4</span>Condition & Photos</div>
+  <div class="stab" id="st5"><span class="stab-n">5</span>Your Details</div>
+  <div class="stab" id="st6"><span class="stab-n">6</span>Review & Send</div>
+</div>
+
+<div class="qf-body">
+
+  <!-- Q1: SERVICE -->
+  <div class="qpanel active" id="q1">
+    <div class="qp-head"><p class="qlabel">Step 1 of 5</p><h2>What type of cleaning<br>do you need?</h2><p>Select the service that best fits your situation.</p></div>
+    <div class="opts" id="qServiceGrid">
+      <div class="opt" onclick="qPick(this,'qService','End of Tenancy Clean','eot')"><div class="opt-ck">✓</div><div class="oi">🔑</div><div class="ot">End of Tenancy</div><div class="os">Moving out — get your full deposit back</div></div>
+      <div class="opt" onclick="qPick(this,'qService','Deep Clean','deep')"><div class="opt-ck">✓</div><div class="oi">✨</div><div class="ot">Deep Clean</div><div class="os">Intensive top-to-bottom one-off clean</div></div>
+      <div class="opt" onclick="qPick(this,'qService','Move In Clean','movein')"><div class="opt-ck">✓</div><div class="oi">🏠</div><div class="ot">Move In Clean</div><div class="os">Fresh start in your new home</div></div>
+      <div class="opt" onclick="qPick(this,'qService','Regular Clean','regular')"><div class="opt-ck">✓</div><div class="oi">🗓️</div><div class="ot">Regular Clean</div><div class="os">Weekly or fortnightly maintenance</div></div>
+      <div class="opt" onclick="qPick(this,'qService','After-Builder Clean','builder')"><div class="opt-ck">✓</div><div class="oi">🪟</div><div class="ot">After-Builder Clean</div><div class="os">Post-renovation dust & debris removal</div></div>
+      <div class="opt" onclick="qPick(this,'qService','Landlord / Agent Service','landlord')"><div class="opt-ck">✓</div><div class="oi">🏘️</div><div class="ot">Landlord / Agent</div><div class="os">Property turnover between tenancies</div></div>
+    </div>
+    <div class="form-nav"><span></span><button class="btn-next" id="qn1" onclick="qGo(2)" disabled>Next: Property →</button></div>
+  </div>
+
+  <!-- Q2: PROPERTY -->
+  <div class="qpanel" id="q2">
+    <div class="qp-head"><p class="qlabel">Step 2 of 5</p><h2>Tell us about<br>your property</h2><p>Type and size helps us prepare the most accurate quote.</p></div>
+    <div class="sub-title">Property Type</div>
+    <div class="opts two" id="qTypeGrid">
+      <div class="opt" onclick="qPick(this,'qType','Flat / Apartment','flat')"><div class="opt-ck">✓</div><div class="oi">🏢</div><div class="ot">Flat / Apartment</div><div class="os">Purpose-built or converted</div></div>
+      <div class="opt" onclick="qPick(this,'qType','House','house')"><div class="opt-ck">✓</div><div class="oi">🏡</div><div class="ot">House</div><div class="os">Terraced, semi or detached</div></div>
+    </div>
+    <div class="div-line"></div>
+    <div class="sub-title">Number of Bedrooms</div>
+    <div class="opts four" id="qBedsGrid">
+      <div class="opt" onclick="qPick(this,'qBeds','Studio / Bedsit')"><div class="opt-ck">✓</div><div class="oi">🚪</div><div class="ot">Studio</div></div>
+      <div class="opt" onclick="qPick(this,'qBeds','1 Bedroom')"><div class="opt-ck">✓</div><div class="oi">🛏️</div><div class="ot">1 Bedroom</div></div>
+      <div class="opt" onclick="qPick(this,'qBeds','2 Bedrooms')"><div class="opt-ck">✓</div><div class="oi">🛏️</div><div class="ot">2 Bedrooms</div></div>
+      <div class="opt" onclick="qPick(this,'qBeds','3 Bedrooms')"><div class="opt-ck">✓</div><div class="oi">🛏️</div><div class="ot">3 Bedrooms</div></div>
+      <div class="opt" onclick="qPick(this,'qBeds','4 Bedrooms')"><div class="opt-ck">✓</div><div class="oi">🏠</div><div class="ot">4 Bedrooms</div></div>
+      <div class="opt" onclick="qPick(this,'qBeds','5 Bedrooms')"><div class="opt-ck">✓</div><div class="oi">🏠</div><div class="ot">5 Bedrooms</div></div>
+      <div class="opt" onclick="qPick(this,'qBeds','6+ Bedrooms')"><div class="opt-ck">✓</div><div class="oi">🏰</div><div class="ot">6+ Bedrooms</div></div>
+    </div>
+    <div class="div-line"></div>
+    <div class="sub-title">Number of Bathrooms</div>
+    <div class="opts four" id="qBathsGrid">
+      <div class="opt" onclick="qPick(this,'qBaths','1 Bathroom')"><div class="opt-ck">✓</div><div class="oi">🚿</div><div class="ot">1 Bathroom</div></div>
+      <div class="opt" onclick="qPick(this,'qBaths','2 Bathrooms')"><div class="opt-ck">✓</div><div class="oi">🚿</div><div class="ot">2 Bathrooms</div></div>
+      <div class="opt" onclick="qPick(this,'qBaths','3 Bathrooms')"><div class="opt-ck">✓</div><div class="oi">🚿</div><div class="ot">3 Bathrooms</div></div>
+      <div class="opt" onclick="qPick(this,'qBaths','4+ Bathrooms')"><div class="opt-ck">✓</div><div class="oi">🚿</div><div class="ot">4+ Bathrooms</div></div>
+    </div>
+    <div class="form-nav"><button class="btn-back" onclick="qGo(1)">← Back</button><button class="btn-next" id="qn2" onclick="qGo(3)" disabled>Next: Rooms & Extras →</button></div>
+  </div>
+
+  <!-- Q3: ROOMS + EXTRAS -->
+  <div class="qpanel" id="q3">
+    <div class="qp-head"><p class="qlabel">Step 3 of 5</p><h2>Rooms & additional<br>services</h2><p>Select everything that applies to your property.</p></div>
+    <div class="sub-title">Rooms in Your Property</div>
+    <div class="extras-g">
+      <div class="ext" onclick="qToggle(this,'Kitchen')"><div class="ext-cb">✓</div><div class="ext-ico">🍳</div><div class="ext-tx"><strong>Kitchen</strong><span>Worktops, cupboards, appliances</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Living Room')"><div class="ext-cb">✓</div><div class="ext-ico">🛋️</div><div class="ext-tx"><strong>Living Room</strong><span>Dusting, hoovering, surfaces</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Dining Room')"><div class="ext-cb">✓</div><div class="ext-ico">🍽️</div><div class="ext-tx"><strong>Dining Room</strong><span>Table, chairs, surfaces</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Hallway & Stairs')"><div class="ext-cb">✓</div><div class="ext-ico">🪜</div><div class="ext-tx"><strong>Hallway & Stairs</strong><span>Bannisters, skirting, floors</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Utility Room')"><div class="ext-cb">✓</div><div class="ext-ico">🧺</div><div class="ext-tx"><strong>Utility Room</strong><span>Washing machine area</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Conservatory')"><div class="ext-cb">✓</div><div class="ext-ico">🌿</div><div class="ext-tx"><strong>Conservatory</strong><span>Glass panels, floor</span></div></div>
+    </div>
+    <div class="div-line"></div>
+    <div class="sub-title">Additional Services Required</div>
+    <div class="extras-g">
+      <div class="ext" onclick="qToggle(this,'Oven Deep Clean')"><div class="ext-cb">✓</div><div class="ext-ico">🔥</div><div class="ext-tx"><strong>Oven Deep Clean</strong><span>Full interior degreasing</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Carpet Steam Cleaning')"><div class="ext-cb">✓</div><div class="ext-ico">🪄</div><div class="ext-tx"><strong>Carpet Steam Cleaning</strong><span>Stain & odour removal</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Fridge / Freezer Clean')"><div class="ext-cb">✓</div><div class="ext-ico">🧊</div><div class="ext-tx"><strong>Fridge / Freezer Clean</strong><span>Full interior sanitise</span></div></div>
+      <div class="ext" onclick="qToggle(this,'External Window Cleaning')"><div class="ext-cb">✓</div><div class="ext-ico">🪟</div><div class="ext-tx"><strong>External Windows</strong><span>Outside streak-free</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Garden / Patio Tidy')"><div class="ext-cb">✓</div><div class="ext-ico">🌿</div><div class="ext-tx"><strong>Garden / Patio Tidy</strong><span>Sweeping, litter, basic tidy</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Upholstery / Sofa Clean')"><div class="ext-cb">✓</div><div class="ext-ico">🛋️</div><div class="ext-tx"><strong>Upholstery / Sofa</strong><span>Steam clean per piece</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Garage Clean')"><div class="ext-cb">✓</div><div class="ext-ico">🏗️</div><div class="ext-tx"><strong>Garage Clean</strong><span>Full sweep & clean</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Dishwasher Clean')"><div class="ext-cb">✓</div><div class="ext-ico">🍽️</div><div class="ext-tx"><strong>Dishwasher Clean</strong><span>Interior sanitise</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Washing Machine Clean')"><div class="ext-cb">✓</div><div class="ext-ico">👕</div><div class="ext-tx"><strong>Washing Machine</strong><span>Drum & filter clean</span></div></div>
+      <div class="ext" onclick="qToggle(this,'Loft / Attic Clean')"><div class="ext-cb">✓</div><div class="ext-ico">📦</div><div class="ext-tx"><strong>Loft / Attic</strong><span>Dust removal & clean</span></div></div>
+    </div>
+    <div class="form-nav"><button class="btn-back" onclick="qGo(2)">← Back</button><button class="btn-next" onclick="qGo(4)">Next: Condition & Photos →</button></div>
+  </div>
+
+  <!-- Q4: CONDITION + PHOTOS -->
+  <div class="qpanel" id="q4">
+    <div class="qp-head"><p class="qlabel">Step 4 of 5</p><h2>Property condition<br>& photos</h2><p>Photos help Pankaj give you the most accurate quote possible.</p></div>
+    <div class="sub-title">Current Condition</div>
+    <div class="cond-g">
+      <div class="cond" onclick="qPickCond(this,'Excellent — Very clean, just needs a refresh')"><div class="ce">😊</div><div class="ct">Excellent</div><div class="cs">Very clean, just needs a refresh</div></div>
+      <div class="cond" onclick="qPickCond(this,'Good — Normal use, some cleaning needed')"><div class="ce">🙂</div><div class="ct">Good</div><div class="cs">Normal use, some cleaning needed</div></div>
+      <div class="cond" onclick="qPickCond(this,'Fair — Needs thorough cleaning throughout')"><div class="ce">😐</div><div class="ct">Fair</div><div class="cs">Needs thorough cleaning throughout</div></div>
+      <div class="cond" onclick="qPickCond(this,'Poor — Heavy soiling, stains or long neglect')"><div class="ce">😟</div><div class="ct">Poor</div><div class="cs">Heavy soiling, stains or neglect</div></div>
+    </div>
+    <div class="div-line"></div>
+    <div class="sub-title">Upload Property Photos</div>
+    <div class="upload-zone" id="qUpload">
+      <input type="file" id="qPhotoInput" accept="image/*" multiple onchange="qHandlePhotos(this)">
+      <div class="uz-icon">📸</div>
+      <div class="uz-title">Drag & drop photos or click to browse</div>
+      <div class="uz-sub">Kitchen, bathrooms, oven, carpets, problem areas<br>Up to 10 photos — JPG or PNG</div>
+    </div>
+    <div class="photo-grid" id="qPhotoPreviews"></div>
+    <div class="photo-tip">💡 Photos of kitchen, bathroom, oven and any stained carpets help Pankaj quote accurately. The more detail the better!</div>
+    <div class="div-line"></div>
+    <div class="sub-title">Special Notes</div>
+    <textarea id="qNotes" placeholder="e.g. Bad limescale in bathroom, oil stains on kitchen floor, carpet stain in bedroom, pet hair throughout, property hasn't been cleaned for 6 months..." style="width:100%;padding:12px 15px;border:1px solid var(--border);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;min-height:90px;resize:vertical;"></textarea>
+    <div class="form-nav"><button class="btn-back" onclick="qGo(3)">← Back</button><button class="btn-next" onclick="qGo(5)">Next: Your Details →</button></div>
+  </div>
+
+  <!-- Q5: CONTACT -->
+  <div class="qpanel" id="q5">
+    <div class="qp-head"><p class="qlabel">Step 5 of 5</p><h2>Almost done —<br>your details</h2><p>So we can send your personalised quote by email and WhatsApp.</p></div>
+    <div class="fg">
+      <div class="f"><label>First Name *</label><input type="text" id="qFname" placeholder="Your first name"></div>
+      <div class="f"><label>Last Name</label><input type="text" id="qLname" placeholder="Your last name"></div>
+      <div class="f"><label>Email Address *</label><input type="email" id="qEmail" placeholder="your@email.com"></div>
+      <div class="f"><label>Phone / WhatsApp *</label><input type="tel" id="qPhone" placeholder="+44 7700 000000"></div>
+      <div class="f full"><label>Property Address / Postcode *</label><input type="text" id="qAddress" placeholder="e.g. 14 High Street, Guildford, GU1 3DH"></div>
+      <div class="f"><label>Preferred Date</label><input type="date" id="qDate"></div>
+      <div class="f"><label>Preferred Time</label>
+        <select id="qTime">
+          <option value="">— Flexible / Any time —</option>
+          <option>8:00 AM – 10:00 AM</option>
+          <option>10:00 AM – 12:00 PM</option>
+          <option>12:00 PM – 2:00 PM</option>
+          <option>2:00 PM – 4:00 PM</option>
+          <option>4:00 PM – 6:00 PM</option>
+        </select>
+      </div>
+      <div class="f full"><label>How did you hear about us?</label>
+        <select id="qSource">
+          <option value="">— Select —</option>
+          <option>Google Search</option>
+          <option>Word of Mouth</option>
+          <option>Facebook / Instagram</option>
+          <option>Checkatrade</option>
+          <option>Flyer / Leaflet</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-nav"><button class="btn-back" onclick="qGo(4)">← Back</button><button class="btn-next" onclick="qGo(6)">Review My Request →</button></div>
+  </div>
+
+  <!-- Q6: REVIEW -->
+  <div class="qpanel" id="q6">
+    <div class="qp-head"><p class="qlabel">Almost there!</p><h2>Review your<br>quote request</h2><p>Check everything looks right, then send. We reply within 2 hours.</p></div>
+    <div class="sum-box">
+      <h3>📋 Your Request Summary</h3>
+      <div class="sum-row"><span class="sl">Service Required</span><span class="sv" id="ss1">—</span></div>
+      <div class="sum-row"><span class="sl">Property Type</span><span class="sv" id="ss2">—</span></div>
+      <div class="sum-row"><span class="sl">Bedrooms</span><span class="sv" id="ss3">—</span></div>
+      <div class="sum-row"><span class="sl">Bathrooms</span><span class="sv" id="ss4">—</span></div>
+      <div class="sum-row"><span class="sl">Rooms Selected</span><span class="sv" id="ss5">—</span></div>
+      <div class="sum-row"><span class="sl">Additional Services</span><span class="sv" id="ss6">None</span></div>
+      <div class="sum-row"><span class="sl">Property Condition</span><span class="sv" id="ss7">—</span></div>
+      <div class="sum-row"><span class="sl">Photos Uploaded</span><span class="sv" id="ss8">0 photos</span></div>
+      <div class="sum-row"><span class="sl">Special Notes</span><span class="sv" id="ss9">None</span></div>
+      <div class="sum-row"><span class="sl">Name</span><span class="sv" id="ss10">—</span></div>
+      <div class="sum-row"><span class="sl">Email</span><span class="sv" id="ss11">—</span></div>
+      <div class="sum-row"><span class="sl">Phone</span><span class="sv" id="ss12">—</span></div>
+      <div class="sum-row"><span class="sl">Property Address</span><span class="sv" id="ss13">—</span></div>
+      <div class="sum-row"><span class="sl">Preferred Date & Time</span><span class="sv" id="ss14">—</span></div>
+      <div class="sum-note">✅ <strong>No price is shown</strong> — Pankaj will personally review your details and photos, then send a tailored quote via email and WhatsApp within 2 hours.</div>
+    </div>
+    <div class="form-nav"><button class="btn-back" onclick="qGo(5)">← Edit Details</button><button class="btn-submit" onclick="qSubmit()">📧 Send My Quote Request</button></div>
+  </div>
+
+  <!-- LOADING -->
+  <div class="qpanel" id="qLoading">
+    <div class="loading-p"><div class="spin"></div><p style="color:var(--grey);">Sending your request to Pankaj...</p></div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="qpanel" id="qSuccess">
+    <div class="success-p">
+      <div class="sico">✅</div>
+      <h2>Request Sent <em>Successfully!</em></h2>
+      <p>Your property details have been sent to Pankaj. He'll review everything including your photos and send your personalised quote within 2 hours.</p>
+      <div class="suc-steps">
+        <div class="ss"><div class="ss-n">1</div><h4>Request Received</h4><p>Pankaj gets your full details & photos</p></div>
+        <div class="ss"><div class="ss-n">2</div><h4>Quote Prepared</h4><p>Personalised quote within 2 hours</p></div>
+        <div class="ss"><div class="ss-n">3</div><h4>Confirm & Book</h4><p>Reply to confirm your slot</p></div>
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://wa.me/447741807713" style="background:#25D366;color:white;padding:14px 28px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">💬 Also WhatsApp Us</a>
+        <button onclick="closePage()" style="background:var(--ink);color:white;border:none;padding:14px 28px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;">← Back to Site</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end quotePage -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ═══ EmailJS Init ═══
+emailjs.init('Dy_3DR3Hh59OuuMa1'); // Replace with your EmailJS public key
+
+// ═══ PAGE SYSTEM ═══
+function openQuoteForm() {
+  document.getElementById('mainPage').classList.remove('active');
+  document.getElementById('quotePage').classList.add('active');
+  window.scrollTo(0,0);
+  // Reset form
+  qGo(1,true);
+}
+function closePage() {
+  document.getElementById('quotePage').classList.remove('active');
+  document.getElementById('mainPage').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// ═══ SCROLL TO SECTION ═══
+function scrollToSec(id) {
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ═══ SCROLL REVEAL ═══
+const revObs = new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('on');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+// ═══ FAQ ═══
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const a=q.nextElementSibling, open=a.style.display==='block';
+    document.querySelectorAll('.faq-a').forEach(x=>x.style.display='none');
+    document.querySelectorAll('.faq-icon').forEach(x=>x.textContent='+');
+    if(!open){a.style.display='block';q.querySelector('.faq-icon').textContent='−';}
+  });
+});
+
+// ═══ CHARTS ═══
+new Chart(document.getElementById('radarChart'),{
+  type:'radar',
+  data:{
+    labels:['Kitchen Deep Clean','Bathroom & Descaling','Carpet & Upholstery','Window & Glass','Oven & Appliances','Hotel Bed-Making','Sanitising','Odour Removal'],
+    datasets:[{label:'Expertise %',data:[97,95,82,88,95,99,96,85],backgroundColor:'rgba(192,154,86,0.12)',borderColor:'rgba(192,154,86,0.8)',pointBackgroundColor:'#c09a56',pointBorderColor:'#fff',borderWidth:2,pointRadius:4}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{r:{min:60,max:100,ticks:{color:'#aaa',backdropColor:'transparent',stepSize:10},grid:{color:'rgba(0,0,0,0.05)'},pointLabels:{color:'#555',font:{size:10}}}}}
+});
+new Chart(document.getElementById('barChart'),{
+  type:'bar',
+  data:{
+    labels:['Kitchen','Bathroom','Bedroom','Living Rm','Hallway','Windows','Oven','Carpets'],
+    datasets:[{label:'Minutes',data:[45,35,20,18,12,25,40,30],backgroundColor:'rgba(192,154,86,0.75)',borderColor:'#c09a56',borderWidth:1,borderRadius:3}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+' mins'}}},scales:{x:{ticks:{color:'#666',font:{size:11}},grid:{color:'rgba(0,0,0,0.04)'}},y:{ticks:{color:'#888',callback:v=>v+'m'},grid:{color:'rgba(0,0,0,0.04)'},title:{display:true,text:'Minutes',color:'#aaa',font:{size:11}}}}}
+});
+
+// ══════════════════════════════════════
+// QUOTE FORM LOGIC
+// ══════════════════════════════════════
+const qs = { service:'', type:'', beds:'', baths:'', condition:'', extras:[], photos:[], photoFiles:[] };
+
+function qGo(n, reset=false) {
+  if(reset){
+    // Reset state
+    Object.assign(qs,{service:'',type:'',beds:'',baths:'',condition:'',extras:[],photos:[],photoFiles:[]});
+    document.querySelectorAll('.opt.sel').forEach(e=>e.classList.remove('sel'));
+    document.querySelectorAll('.cond.sel').forEach(e=>e.classList.remove('sel'));
+    document.querySelectorAll('.ext.sel').forEach(e=>e.classList.remove('sel'));
+    document.getElementById('qPhotoPreviews').innerHTML='';
+    document.getElementById('qNotes').value='';
+    ['qFname','qLname','qEmail','qPhone','qAddress'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    document.getElementById('qn1').disabled=true;
+    document.getElementById('qn2').disabled=true;
+  }
+  // Validate
+  if(n===2&&!qs.service){alert('Please select a service type.');return;}
+  if(n===3&&(!qs.type||!qs.beds||!qs.baths)){alert('Please select property type, bedrooms and bathrooms.');return;}
+  if(n===6) buildSummary();
+  // Show panel
+  document.querySelectorAll('.qpanel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('q'+n).classList.add('active');
+  // Update tabs
+  document.querySelectorAll('.stab').forEach((t,i)=>{
+    t.classList.remove('active','done');
+    if(i+1<n)t.classList.add('done');
+    if(i+1===n)t.classList.add('active');
+  });
+  // Progress
+  document.getElementById('qfProg').style.width=(n/6*100)+'%';
+  document.querySelector('.qf-body').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function qPick(el, field, val) {
+  el.closest('.opts').querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  qs[field]=val;
+  if(field==='qService'){qs.service=val;document.getElementById('qn1').disabled=false;}
+  if(field==='qType')qs.type=val;
+  if(field==='qBeds')qs.beds=val;
+  if(field==='qBaths')qs.baths=val;
+  if((qs.type&&qs.beds&&qs.baths))document.getElementById('qn2').disabled=false;
+}
+
+function qPickCond(el,val){
+  document.querySelectorAll('.cond').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  qs.condition=val;
+}
+
+function qToggle(el,val){
+  el.classList.toggle('sel');
+  if(el.classList.contains('sel'))qs.extras.push(val);
+  else qs.extras=qs.extras.filter(e=>e!==val);
+}
+
+function qHandlePhotos(input){
+  const files=Array.from(input.files);
+  const rem=10-qs.photoFiles.length;
+  files.slice(0,rem).forEach(file=>{
+    qs.photoFiles.push(file);
+    const r=new FileReader();
+    r.onload=e=>{qs.photos.push(e.target.result);renderQPhotos();};
+    r.readAsDataURL(file);
+  });
+  if(files.length>rem)alert('Maximum 10 photos. Only '+rem+' added.');
+}
+
+function renderQPhotos(){
+  const c=document.getElementById('qPhotoPreviews');
+  c.innerHTML='';
+  qs.photos.forEach((src,i)=>{
+    c.innerHTML+=`<div class="ph-wrap"><img src="${src}"><button class="ph-del" onclick="removeQPhoto(${i})">✕</button></div>`;
+  });
+  document.getElementById('ss8').textContent=qs.photos.length+' photo(s) uploaded';
+}
+
+function removeQPhoto(i){
+  qs.photos.splice(i,1);qs.photoFiles.splice(i,1);renderQPhotos();
+}
+
+// Drag & drop
+const quz=document.getElementById('qUpload');
+quz.addEventListener('dragover',e=>{e.preventDefault();quz.classList.add('drag');});
+quz.addEventListener('dragleave',()=>quz.classList.remove('drag'));
+quz.addEventListener('drop',e=>{e.preventDefault();quz.classList.remove('drag');if(e.dataTransfer.files)qHandlePhotos({files:e.dataTransfer.files});});
+
+function buildSummary(){
+  const rooms=[],extras=[];
+  document.querySelectorAll('.ext.sel .ext-tx strong').forEach(el=>{
+    const t=el.textContent;
+    ['Kitchen','Living Room','Dining Room','Hallway & Stairs','Utility Room','Conservatory'].includes(t)?rooms.push(t):extras.push(t);
+  });
+  const pdate=document.getElementById('qDate').value;
+  const ptime=document.getElementById('qTime').value;
+  let dtStr='Not specified';
+  if(pdate){const d=new Date(pdate);dtStr=d.toLocaleDateString('en-GB',{weekday:'long',year:'numeric',month:'long',day:'numeric'});if(ptime)dtStr+=' · '+ptime;}
+  document.getElementById('ss1').textContent=qs.service||'—';
+  document.getElementById('ss2').textContent=qs.type||'—';
+  document.getElementById('ss3').textContent=qs.beds||'—';
+  document.getElementById('ss4').textContent=qs.baths||'—';
+  document.getElementById('ss5').textContent=rooms.length?rooms.join(', '):'Not specified';
+  document.getElementById('ss6').textContent=extras.length?extras.join(', '):'None';
+  document.getElementById('ss7').textContent=qs.condition||'Not specified';
+  document.getElementById('ss8').textContent=qs.photos.length+' photo(s)';
+  document.getElementById('ss9').textContent=document.getElementById('qNotes').value||'None';
+  document.getElementById('ss10').textContent=(document.getElementById('qFname').value+' '+document.getElementById('qLname').value).trim()||'—';
+  document.getElementById('ss11').textContent=document.getElementById('qEmail').value||'—';
+  document.getElementById('ss12').textContent=document.getElementById('qPhone').value||'—';
+  document.getElementById('ss13').textContent=document.getElementById('qAddress').value||'—';
+  document.getElementById('ss14').textContent=dtStr;
+}
+
+async function qSubmit(){
+  const fn=document.getElementById('qFname').value.trim();
+  const em=document.getElementById('qEmail').value.trim();
+  const ph=document.getElementById('qPhone').value.trim();
+  const ad=document.getElementById('qAddress').value.trim();
+  if(!fn||!em||!ph||!ad){alert('Please fill in your name, email, phone and property address.');return;}
+  const rooms=[],extras=[];
+  document.querySelectorAll('.ext.sel .ext-tx strong').forEach(el=>{
+    const t=el.textContent;
+    ['Kitchen','Living Room','Dining Room','Hallway & Stairs','Utility Room','Conservatory'].includes(t)?rooms.push(t):extras.push(t);
+  });
+  const pdate=document.getElementById('qDate').value;
+  const ptime=document.getElementById('qTime').value;
+  let dtStr='Not specified';
+  if(pdate){const d=new Date(pdate);dtStr=d.toLocaleDateString('en-GB',{weekday:'long',year:'numeric',month:'long',day:'numeric'});if(ptime)dtStr+=' · '+ptime;}
+  const notes=document.getElementById('qNotes').value;
+  const src=document.getElementById('qSource').value;
+  const photoNote=qs.photos.length>0?qs.photos.length+' photo(s) attached — see email attachments':'No photos uploaded';
+  document.querySelectorAll('.qpanel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('qLoading').classList.add('active');
+  try{
+    await emailjs.send('service_5qtyz2a','template_48vf0va',{
+      to_email:'pankajkaul00@gmail.com',
+      from_name:fn+' '+document.getElementById('qLname').value,
+      from_email:em,
+      phone:ph,
+      service:qs.service,
+      prop_type:qs.type,
+      bedrooms:qs.beds,
+      bathrooms:qs.baths,
+      rooms:rooms.join(', ')||'Not specified',
+      extras:extras.join(', ')||'None',
+      condition:qs.condition||'Not specified',
+      address:ad,
+      preferred_date:dtStr,
+      notes:notes||'None',
+      heard_from:src||'Not specified',
+      photo_count:qs.photos.length+' photo(s)',
+    });
+    document.getElementById('qLoading').classList.remove('active');
+    document.getElementById('qSuccess').classList.add('active');
+    document.getElementById('qfProg').style.width='100%';
+  } catch(err){
+    console.error(err);
+    document.getElementById('qLoading').classList.remove('active');
+    document.getElementById('q6').classList.add('active');
+    const msg=`Hi Pankaj! Quote Request 📋\n\nName: ${fn}\nEmail: ${em}\nPhone: ${ph}\n\nService: ${qs.service}\nProperty: ${qs.type} — ${qs.beds}, ${qs.baths}\nRooms: ${rooms.join(', ')||'None'}\nExtras: ${extras.join(', ')||'None'}\nCondition: ${qs.condition||'Not specified'}\nAddress: ${ad}\nDate: ${dtStr}\nNotes: ${notes||'None'}\
